@@ -1,7 +1,5 @@
 import React from "react";
 
-function pages() {
+export default function pages() {
   return <div>liste des credit :</div>;
 }
-
-export default pages;

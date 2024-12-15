@@ -46,22 +46,22 @@ export const columns: ColumnDef<Payment>[] = [
   },
   {
     accessorKey: "article",
-    header: "Article",
+    header: () => <div className="text-center text-green-600">Article</div>,
     cell: ({ row }) => (
-      <div className="capitalize ">{row.getValue("article")}</div>
+      <div className="capitalize">{row.getValue("article")}</div>
     ),
   },
   {
     accessorKey: "marque",
-    header: "Marque",
+    header: () => <div className="text-center ">marque</div>,
     cell: ({ row }) => (
-      <div className="capitalize">{row.getValue("marque")}</div>
+      <div className="capitalize ">{row.getValue("marque")}</div>
     ),
   },
   {
     accessorKey: "prix1",
     header: () => (
-      <div className="text-right text-emerald-600">Prix de revient</div>
+      <div className="text-center text-red-600">Prix de revient</div>
     ),
     cell: ({ row }) => {
       const amount = parseFloat(row.getValue("prix1"));
@@ -72,12 +72,16 @@ export const columns: ColumnDef<Payment>[] = [
         currency: "cfa",
       }).format(amount);
 
-      return <div className="text-right font-medium">{formatted}</div>;
+      return (
+        <div className="text-center font-medium text-red-600">{formatted}</div>
+      );
     },
   },
   {
     accessorKey: "prix2",
-    header: () => <div className="text-right">Prix grossite</div>,
+    header: () => (
+      <div className="text-center text-green-600">Prix grossite</div>
+    ),
     cell: ({ row }) => {
       const amount = parseFloat(row.getValue("prix2"));
 
@@ -87,12 +91,16 @@ export const columns: ColumnDef<Payment>[] = [
         currency: "cfa",
       }).format(amount);
 
-      return <div className="text-right font-medium">{formatted}</div>;
+      return (
+        <div className="text-center font-medium text-green-600">
+          {formatted}
+        </div>
+      );
     },
   },
   {
     accessorKey: "prix3",
-    header: () => <div className="text-right">Prix details</div>,
+    header: () => <div className="text-center">Demi-gros</div>,
     cell: ({ row }) => {
       const amount = parseFloat(row.getValue("prix3"));
 
@@ -102,7 +110,7 @@ export const columns: ColumnDef<Payment>[] = [
         currency: "cfa",
       }).format(amount);
 
-      return <div className="text-right font-medium">{formatted}</div>;
+      return <div className="text-center font-medium">{formatted}</div>;
     },
   },
 ];
