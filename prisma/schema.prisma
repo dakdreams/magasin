@@ -3,18 +3,19 @@
 
 generator client {
   provider = "prisma-client-js"
+  output   = "./generated/client"
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
 model Articles {
-  id    Int     @id @default(autoincrement())
-  article String  
+  id      Int    @id @default(autoincrement())
+  article String
   marque  String
-  prix1  Int
-  prix2  Int
-  prix3  Int
+  prix1   Int
+  prix2   Int
+  prix3   Int
 }
