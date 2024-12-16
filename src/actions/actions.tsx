@@ -2,6 +2,7 @@
 
 import prisma from "@/lib/db";
 import { Articles } from "@prisma/client";
+
 import { revalidatePath } from "next/cache";
 
 export async function createArticles(FormData: Articles) {
