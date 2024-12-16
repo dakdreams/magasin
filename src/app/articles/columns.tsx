@@ -46,7 +46,7 @@ export const columns: ColumnDef<Payment>[] = [
   },
   {
     accessorKey: "article",
-    header: () => <div className="text-center text-green-600">Article</div>,
+    header: () => <div className="text-center">Article</div>,
     cell: ({ row }) => (
       <div className="capitalize">{row.getValue("article")}</div>
     ),
@@ -67,10 +67,7 @@ export const columns: ColumnDef<Payment>[] = [
       const amount = parseFloat(row.getValue("prix1"));
 
       // Format the amount as a dollar amount
-      const formatted = new Intl.NumberFormat("de-DE", {
-        style: "currency",
-        currency: "cfa",
-      }).format(amount);
+      const formatted = new Intl.NumberFormat("de-DE", {}).format(amount);
 
       return (
         <div className="text-center font-medium text-red-600">{formatted}</div>
@@ -86,10 +83,7 @@ export const columns: ColumnDef<Payment>[] = [
       const amount = parseFloat(row.getValue("prix2"));
 
       // Format the amount as a dollar amount
-      const formatted = new Intl.NumberFormat("de-DE", {
-        style: "currency",
-        currency: "cfa",
-      }).format(amount);
+      const formatted = new Intl.NumberFormat("de-DE", {}).format(amount);
 
       return (
         <div className="text-center font-medium text-green-600">
@@ -105,10 +99,7 @@ export const columns: ColumnDef<Payment>[] = [
       const amount = parseFloat(row.getValue("prix3"));
 
       // Format the amount as a dollar amount
-      const formatted = new Intl.NumberFormat("de-DE", {
-        style: "currency",
-        currency: "cfa",
-      }).format(amount);
+      const formatted = new Intl.NumberFormat("de-DE", {}).format(amount);
 
       return <div className="text-center font-medium">{formatted}</div>;
     },
